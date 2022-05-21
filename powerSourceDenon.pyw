@@ -1,13 +1,12 @@
 import os
 import socket
 import time
-import ipaddress
 from dotenv import load_dotenv
 
 load_dotenv()
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((os.getenv('DENON_IP'), 23))
+s.connect((os.getenv("DENON_IP"), 23))
 
 s.send(b"ZM?")
 powerstate = s.recv(135)
